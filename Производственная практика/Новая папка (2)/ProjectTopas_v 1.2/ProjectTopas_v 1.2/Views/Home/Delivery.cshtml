@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.Delivery>
+@{
+    ViewBag.Title = "Доставка септика";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="page-header text-center">Доставка септиков ТОПАС</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Есть возможность самовывоза септика или заказать доставку.<br />
+            Доставка осуществляется в данные области:
+            <br />
+            <ul>
+                <li>Серпухов, Серпуховский район</li>
+                <li>Чехов, Чеховский район</li>
+                <li>Калужская облать(Жуковский район, Тарусский район)</li>
+                <li>Тульская облать(Заокский район)</li>
+                <li>Ступинский район</li>
+                <li>Наро-Фоминский район</li>
+            </ul>
+        <p>Для более детальной информации вы можете обратиться по телефону:<br />
+        <b>8-915-014-02-93</b> | <b>8-977-980-47-99</b> | <b>8-903-672-61-80</b></p>
+    </div>
+</div>
+<h2 class="page-header text-center">Цены на доставку септиков</h2>
+<div class="row">
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.SepticTank.Model)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.BefMK) 
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.AftMK)
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SepticTank.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BefMK) руб.
+                </td>
+                <td>
+                   + @Html.DisplayFor(modelItem => item.AftMK) руб. за 1 км.
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

@@ -1,0 +1,89 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticTank
+@{
+    ViewBag.Title = "Модельный ряд";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+
+<div class="row">
+    <h1 class="page-header text-center">Модельный ряд септиков ТОПАС</h1>
+    <p>На данной странице вы можете узнать цену и некоторые характеристики септика, которые вам необходимы. Также есть возможность просмотра детальной информации конкретной модели, нажав на название модели.</p>
+</div>
+
+<div class="row">
+    <h3 class="text-center">Цены на септики ТОПАС с установкой под ключ</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th rowspan="2">Модель</th>
+                <th colspan="2" style="text-align:center"><p>Цена, руб.</p></th>
+                <th rowspan="2">Количество <br />пользователей, чел.</th>
+                <th rowspan="2">Максимально дневной<br /> приток, м<sup>3</sup>/сутки</th>
+                <th rowspan="2">Энергия,<br />Квт/сутки</th>
+                <th colspan="3" style="text-align:center">Габаритные размеры</th>
+            </tr>
+            <tr>
+                <th>1 компрессор</th>
+                <th>2 компрессора</th>
+                <th>Длина, м</th>
+                <th>Ширина, м</th>
+                <th>Высота, м</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in ViewBag.SepticTanks)
+            {
+                <tr>
+                    <td style="text-align:center"><a href="/Home/Details/@b.Id">@b.Model</a></td>
+                    <td style="text-align:center">
+                        <p>
+                            @if (b.Cost1Comp == 0)
+                            { }
+                            else
+                            {
+                                @b.Cost1Comp
+                            }
+                        </p>
+                    </td>
+                    <td style="text-align:center">
+                        <p>
+                            @if (b.Cost2Comp == 0)
+                            { }
+                            else
+                            {
+                                @b.Cost2Comp
+                            }
+                        </p>
+                    </td>
+                    <td style="text-align:center"><p>@b.CountUsers</p></td>
+                    <td style="text-align:center"><p>@b.InflowDrain</p></td>
+                    <td style="text-align:center"><p>@b.Energy</p></td>
+                    <td style="text-align:center"><p>@b.Lenght</p></td>
+                    <td style="text-align:center"><p>@b.Weight</p></td>
+                    <td style="text-align:center"><p>@b.Height</p></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

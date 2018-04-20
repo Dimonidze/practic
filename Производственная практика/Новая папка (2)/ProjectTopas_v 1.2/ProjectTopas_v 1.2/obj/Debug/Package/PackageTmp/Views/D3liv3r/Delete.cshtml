@@ -1,0 +1,49 @@
+﻿@model ProjectTopas_v_1._2.Models.Delivery
+
+@{
+    ViewBag.Title = "Удаление записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Удаление записи о доставке</h2>
+
+<h3>Вы серьёзно хотите удалить эту запись?</h3>
+<div>
+    <h4>Доставка</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SepticTank.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BefMK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BefMK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AftMK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AftMK)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>

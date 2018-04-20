@@ -1,0 +1,14 @@
+﻿{
+  "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+  "id": "ProjectTopas_v 1.2",
+  "namespace": "microsoft.com",
+  "gateway": "2015-01-14",
+  "version": "1.0.0",
+  "title": "ProjectTopas_v 1.2",
+  "summary": "",
+  "author": "",
+  "endpoints": {
+    "apiDefinition": "/swagger/docs/v1",
+    "status": null
+  }
+}

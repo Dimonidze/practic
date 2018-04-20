@@ -1,0 +1,91 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticTank
+
+@{
+    ViewBag.Title = "Детальная информация";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Детальная информация</h2>
+
+<div>
+    <h4>Модели</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost1Comp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost1Comp) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost2Comp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost2Comp) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InflowDrain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InflowDrain)  м<sup>3</sup>/сутки
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Energy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Energy) Квт/сутки
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lenght)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lenght) м
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight) м
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height) м
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.Delivery>
+
+@{
+    ViewBag.Title = "Доставка";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Страница изменений данных в таблице "Доставка"</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BefMK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AftMK)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SepticTank.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BefMK) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AftMK) руб.
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

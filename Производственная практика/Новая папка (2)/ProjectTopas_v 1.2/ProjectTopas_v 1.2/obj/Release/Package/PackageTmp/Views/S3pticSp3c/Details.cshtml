@@ -1,0 +1,67 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticSpecification
+
+@{
+    ViewBag.Title = "Детальная информация";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Детальная информация</h2>
+
+<div>
+    <h4>Подробная информация о моделях</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SepticTank.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight) кг.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolleyRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolleyRes) л
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PipeDepth)
+        </dt>
+
+        <dd> 
+            @Html.DisplayFor(model => model.PipeDepth) см
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathPicMain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathPicMain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathMontagePic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathMontagePic)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

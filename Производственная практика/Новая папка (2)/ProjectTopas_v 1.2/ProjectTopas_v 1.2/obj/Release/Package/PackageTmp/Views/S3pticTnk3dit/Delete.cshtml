@@ -1,0 +1,97 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticTank
+
+@{
+    ViewBag.Title = "Удаление записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Удаление записи</h2>
+
+<h3>Вы действительно хотите удалить эту запись?</h3>
+<div>
+    <h4>Модели</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost1Comp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost1Comp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost2Comp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost2Comp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InflowDrain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InflowDrain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Energy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Energy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lenght)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lenght)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Content/IconTS.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Индивидуальная канализация ТОПАС в Серпухове - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href='@Url.Content("~/Content/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div id="modDialog" class="modal fade">
+        <div id="dialogContent" class="modal-dialog"></div>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/"><img class="img-responsive" style="height:54px" src="~/Content/IconTS.png" /></a>               
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Модельный ряд", "Models", "Home")</li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Услуги<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li></li>
+                            <li>@Html.ActionLink("Монтаж", "Installations", "Home")</li>
+                            <li>@Html.ActionLink("Доставка", "Delivery", "Home")</li>
+                            <li>@Html.ActionLink("Обслуживание и ремонт", "Services", "Home")</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      @Html.ActionLink("Сделать запрос", "CreateRequest", new { }, new { @class = "compItem btn btn-lg btn-default btn-ill" })
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+<footer class="col-lg-12">
+    <div class="container">
+        <p>topas-serpukhov.ru &copy; @DateTime.Now.Year  Контактная информация: Телефон: <b>8-915-014-02-93</b> | <b>8-977-980-47-99</b> | <b>8-903-672-61-80</b></p>
+    </div>
+</footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

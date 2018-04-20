@@ -1,0 +1,43 @@
+﻿@model ProjectTopas_v_1._2.Models.Delivery
+
+    @{
+        ViewBag.Title = "Детальная информация";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+
+    <h2>Подробная информация о доставке</h2>
+
+    <div>
+        <h4>Доставка</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SepticTank.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SepticTank.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BefMK)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BefMK) руб.
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AftMK)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AftMK) руб.
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Вернуться к списку", "Index")
+    </p>

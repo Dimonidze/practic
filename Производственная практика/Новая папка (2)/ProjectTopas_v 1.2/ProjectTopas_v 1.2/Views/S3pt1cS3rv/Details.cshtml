@@ -1,0 +1,35 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticService
+
+@{
+    ViewBag.Title = "Детальная информация";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Детальная информация</h2>
+
+<div>
+    <h4>Обслуживание</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Models)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Models)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

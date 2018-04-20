@@ -1,0 +1,41 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticService
+
+@{
+    ViewBag.Title = "Удаление записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Удаление записи</h2>
+
+<h3>Вы действительно хотите удалить эту запись?</h3>
+<div>
+    <h4>Обслуживание</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Models)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Models)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,157 @@
+﻿@using ProjectTopas_v_1._2.Models
+@model SepticTank
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1 class="page-header">Подробная информация о модели @Html.DisplayFor(model => model.Model)</h1>
+@foreach (SepticSpecification S in Model.SepticSpecification)
+{
+    foreach (Installation I in Model.Installation)
+    {
+
+   <div class="row">
+        <div class="col-xs-6 col-md-3 ">
+            <img src="~/Pics/Models/MainPic/@S.PathPicMain" class="img-thumbnail" />
+        </div>
+
+    
+        <div class="col-xs-12 col-md-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#info" data-toggle="tab">Подробная информация</a></li>
+                <li><a href="#cost" data-toggle="tab">Цены</a></li>
+                <li><a href="#Scheme" data-toggle="tab">Монтажная схема</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="info">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Спецификация</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>Количество пользователей</th>
+                            <th>@Html.DisplayFor(model => model.CountUsers)</th>
+                        </tr>
+                        <tr>
+                            <th>Вес</th>
+                            <th>@S.Weight кг</th>
+                        </tr>
+                        <tr>
+                            <th>Залповый сброс</th>
+                            <th>@S.VolleyRes л</th>
+                        </tr>
+                        <tr>
+                            <th>Глубина залегания трубы</th>
+                            <th>@S.PipeDepth см</th>
+                        </tr>
+                        <tr>
+                            <th>Энергопотребление</th>
+                            <th>@I.SepticTank.Energy КВт/сутки</th>
+                        </tr>
+                        <tr>
+                            <th>Максимально дневной приток</th>
+                            <th>@I.SepticTank.InflowDrain м<sup>3</sup>/сутки</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="montage">
+                    <p>Цены на монтаж</p>
+                </div>
+                <div class="tab-pane fade" id="Scheme">
+                    <img src="~/Pics/Models/Scheme/@S.PathMontagePic" class="img-responsive" />
+                </div>
+            <div class="tab-pane fade" id="cost">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Модель</th>
+                            <th>Цена, руб.</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th colspan="2">1 компрессор</th>
+                        <th>
+                        @if (Model.Cost1Comp == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(model => model.Cost1Comp)
+                        }
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">2 компрессора</th>
+                        <th>@Html.DisplayFor(model => model.Cost2Comp)</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">Шеф-монтаж</th>
+                        <th>@I.CostShief</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4">Стандартный монтаж в зависимости от типа грунта</th>
+                        <th>Песчаный</th>
+                        <th>@I.InstSand</th>
+                    </tr>
+                    <tr>
+                        <th>Суглинок</th>
+                        <th>@I.InstLoam</th>
+                    </tr>
+                    <tr>
+                        <th>Глина</th>
+                        <th>@I.InstClay</th>
+                    </tr>
+                    <tr>
+                        <th>Плывун</th>
+                        <th>@I.InstQuickSand</th>
+                    </tr>
+                </table>
+                </div>
+            </div>
+       </div>
+</div>
+    }
+}
+<div class="row">
+    <h1 class="page-header text-center">Особенности автономной канализации "ТОПАС"</h1>
+    <p>
+    <ul>
+        <li>Высокое качество очистки стоков (до 98%);</li>
+        <li>Легкий и прочный компактный корпус, выполненный из высококачественного полипропилена и снабженный ребрами жесткости;</li>
+        <li>Простой монтаж в сжатые сроки, возможность монтажа в любое время года, в любых типах грунтов, даже при высоком уровне грунтовых вод;</li>
+        <li>Полная экологическая безопасность, отсутствие неприятного запаха;</li>
+        <li>Легкость обслуживания: нет необходимости в вызове ассенизационной машины, приобретении культур микроорганизмов и т.п.;</li>
+        <li>На выходе — чистая техническая вода и стабилизированный ил;</li>
+        <li>Надежность и долговечность, срок службы составляет более 50 лет.</li>
+    </ul>
+        </p>
+    <p><b>Установки «ТОПАС» — это правильное решение при обустройстве канализации на частной территории</b></p>
+</div>
+
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

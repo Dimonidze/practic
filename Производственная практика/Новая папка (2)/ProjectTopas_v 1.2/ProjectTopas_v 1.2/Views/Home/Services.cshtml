@@ -1,0 +1,71 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticService
+@{
+    ViewBag.Title = "Обслуживание";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="page-header text-center">Обслуживание и ремонт септиков Топас</h1>
+<div class="row">
+    <p>Своевременное обслуживание и ремонт вашего септика или автономной конализации позволят продлить срок эксплуатации на годы!</p>
+    <p>Как и любые другие технически-сложные устройства, очистные сооружения ТОПАС нуждаются в уходе и регулярной очистке. В результате работы автономной станции образуются ил, который следует удалять 3-4 раза в год для нормального функционирования системы.</p>
+    <p>Звоните сейчас! <b>8-915-014-02-93</b> | <b>8-977-980-47-99</b> | <b>8-903-672-61-80</b></p>
+    <hr />
+    <h2 class="page-header text-center">Аварийные случаи, возможные при обслуживании септиков топас</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-thumbnail thumb" src="~/Pics/Other/Serv1.jpg" />
+        </div>
+        <div class="col-md-3">
+            <img class="img-thumbnail thumb" src="~/Pics/Other/Serv2.jpg" />
+        </div>
+        <div class="col-md-3">
+            <img class="img-thumbnail thumb" src="~/Pics/Other/Serv3.jpg" />
+        </div>
+        <div class="col-md-3">
+            <img class="img-thumbnail thumb" src="~/Pics/Other/Serv4.jpg" />
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <h1 class="page-header text-center">Обслужите ваш септик вовремя!</h1>
+    @foreach (var b in ViewBag.SepticServices)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail text-justify">
+                <h4>Обслуживание под ключ @b.Models</h4>
+                <hr />
+                <h3 class="text-center">@b.Cost руб.</h3>
+            </div>
+        </div>
+    }
+    <div class="col-md-4">
+        <p>В услугу входит:</p>
+        <br />
+        <ul>
+            <li>Стандартное облсуживание</li>
+            <li>Полная диагностика</li>
+            <li>Рекомендации по эксплуатации</li>
+        </ul>
+        
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

@@ -1,0 +1,75 @@
+﻿@model ProjectTopas_v_1._2.Models.Installation
+
+@{
+    ViewBag.Title = "Детальная информация";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Детальная информация</h2>
+
+<div>
+    <h4>Монтаж</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SepticTank.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostShief)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostShief) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstSand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstSand) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstLoam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstLoam) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstClay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstClay) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstQuickSand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstQuickSand) руб.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpenSand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpenSand) м<sup>3</sup>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.SepticSpecification>
+@{
+    ViewBag.Title = "Главная";
+}
+<h1 class="page-header text-center">Сайт по продаже и установки септиков ТОПАС.</h1>
+<div class="row">
+    <p>Септик «Топас» является локальной биологической системой очистки стоков с предварительным осаждением крупных взвесей. Именно на таком принципе работают централизованные канализационные очистные сооружения, поэтому септик «Топас» условно можно назвать их миниатюрой.</p>
+    <p>На данном сайте вы можете просмотреть модельный ряд септиков, стоимость модели, монтажа, доставки и обслуживания.</p>
+    <div class="row backgr1">
+        <div class="col-md-6 col-md-offset-3 img-thumbnail backgr2 text-center">
+            <p class="">Чтобы обратиться к нам вы можете нажать на кнопку "Сделать запрос" или позвонить по данному телефону:</p>
+            <div class="col-md-5">@Html.ActionLink("Сделать запрос", "CreateRequest", new { }, new { @class = "compItem btn btn-lg btn-default btn-ill gl2" }) </div>
+            <div class="col-md-2"><h3 class="gl1">ИЛИ</h3></div>
+            <div class="col-md-5">
+                <h4 class="">8-915-014-02-93</h4>
+                <h4 class="">8-977-980-47-99</h4>
+                <h4 class="">8-903-672-61-80</h4>               
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="page-header text-center">Популярные модели</h2>
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 col-md-3">
+        <div class="thumbnail">
+            <img class="img-responsive" src="~/Pics/Models/MainPic/@Html.DisplayFor(modelItem => item.PathPicMain)">
+            <div class="caption text-center">
+                <h4>Модель: @Html.DisplayFor(modelItem => item.SepticTank.Model)</h4>
+                <p>Цена: @Html.DisplayFor(modelItem => item.SepticTank.Cost1Comp) руб.</p>
+                <p>@Html.ActionLink("Подробнее", "Details", new { id = item.Id }, new { @class = "btn btn-default btn-group-justified" })</p>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<hr />
+<div class="row">
+    <h1 class="page-header text-center">Преимущества автономной канализации "ТОПАС"</h1>
+    <p>
+        <ul>
+            <li>Высокое качество очистки стоков (до 98%);</li>
+            <li>Легкий и прочный компактный корпус, выполненный из высококачественного полипропилена и снабженный ребрами жесткости;</li>
+            <li>Простой монтаж в сжатые сроки, возможность монтажа в любое время года, в любых типах грунтов, даже при высоком уровне грунтовых вод;</li>
+            <li>Полная экологическая безопасность, отсутствие неприятного запаха;</li>
+            <li>Легкость обслуживания: нет необходимости в вызове ассенизационной машины, приобретении культур микроорганизмов и т.п.;</li>
+            <li>На выходе — чистая техническая вода и стабилизированный ил;</li>
+            <li>Надежность и долговечность, срок службы составляет более 50 лет.</li>
+        </ul>
+    </p>
+    <p><b>Установки «ТОПАС» — это правильное решение при обустройстве канализации на частной территории</b></p>
+</div>
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

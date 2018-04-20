@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.Installation>
+@{
+    ViewBag.Title = "Installations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 class="page-header text-center">Монтаж септика за 1 день!</h1>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            <b>Монтаж</b> - это работы, связанные с установкой и пуско-наладочными работами на участке заказчика, которые требуют квалифицированных знаний.
+        </p>
+        <p>
+            <i><b>Монтаж</b> включает в себя:</i><br />
+            <ul>
+                <li>Копание котлована;</li>
+                <li>В случае, если монтажные работы проводятся на глубине более 2 м или на участке песчаный грунт или плывун, согласно нормам техники безопасности в котловане проводится установка опалубки;</li>
+                <li>Осуществляется прокладка труб и дальнейшее их присоединение к системе;</li>
+                <li>Монтаж врезного патрубка  в приемную камеру;</li>
+                <li>Прокладка и подключение эл. кабеля к блоку управления;</li>
+                <li>Монтаж компрессоров;</li>
+                <li>Тестирование очистного сооружения.</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <h3 class="text-center">Цены на монтажные работы по установке канализации Топас</h3>
+    <table class="table table-bordered text-center table-hover">
+        <thead>
+            <tr>
+                <th rowspan="2">Модель АС</th>
+                <th rowspan="2">Шеф-монтаж</th>
+                <th colspan="4">Стандартный монтаж в зависимости от типа грунта</th>
+                <th rowspan="2">Ориентировочный расход<br /> песка для обсыпки АС, м<sup>3</sup></th>
+            </tr>
+            <tr>
+                <th>Песчаный</th>
+                <th>Суглинок</th>
+                <th>Глина</th>
+                <th>Плывун</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><p>@Html.DisplayFor(modelItem => item.SepticTank.Model)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.CostShief)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.InstSand)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.InstLoam)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.InstClay)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.InstQuickSand)</p></td>
+                    <td style="text-align:center"><p>@Html.DisplayFor(modelItem => item.ExpenSand)</p></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <p>В цену стандартного монтажа включена подготовка котлована<sup>*</sup> под АС ТОПАС и под канализационную трубу ДУ 110, и при необходимости</p>
+        <p><sup>*</sup> - Не включены работы по подготовке и укладке бетонной плиты на дно котлована для моделей АС ТОПАС: 30, 40, 50, 75, 100, 150 и их модификаций</p>
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}

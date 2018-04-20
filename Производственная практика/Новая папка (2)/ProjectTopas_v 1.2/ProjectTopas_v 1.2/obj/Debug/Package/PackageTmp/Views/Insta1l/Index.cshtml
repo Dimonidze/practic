@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.Installation>
+
+@{
+    ViewBag.Title = "Монтаж";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Страница изменений данных в таблице "Монтаж"</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostShief)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstSand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstLoam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstClay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstQuickSand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpenSand)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SepticTank.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostShief) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstSand) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstLoam) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstClay) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstQuickSand) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpenSand) м<sup>3</sup>
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

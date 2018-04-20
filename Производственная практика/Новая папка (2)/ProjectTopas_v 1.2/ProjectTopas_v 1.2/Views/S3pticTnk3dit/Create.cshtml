@@ -1,0 +1,123 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticTank
+
+@{
+    ViewBag.Title = "Создание записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Создание записи</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Модели</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost1Comp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Cost1Comp, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">руб.</span>
+                </div> 
+                <p class="help-block">Цена за модель с одним компрессором</p>
+                @Html.ValidationMessageFor(model => model.Cost1Comp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cost2Comp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Cost2Comp, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">руб.</span>
+                </div> 
+                <p class="help-block">Цена за модель с двумя компрессорами</p>
+                @Html.ValidationMessageFor(model => model.Cost2Comp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CountUsers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CountUsers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CountUsers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InflowDrain, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.InflowDrain, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">М<sup>3</sup>/сутки</span>
+                </div>                 
+                @Html.ValidationMessageFor(model => model.InflowDrain, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Energy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Energy, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">КВт/сутки</span>
+                </div>                
+                @Html.ValidationMessageFor(model => model.Energy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lenght, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Lenght, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">м</span>
+                </div>                
+                @Html.ValidationMessageFor(model => model.Lenght, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">м</span>
+                </div>
+                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">м</span>
+                </div>
+                @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>

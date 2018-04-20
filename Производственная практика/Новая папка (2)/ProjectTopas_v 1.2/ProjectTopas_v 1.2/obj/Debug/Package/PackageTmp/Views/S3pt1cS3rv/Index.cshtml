@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProjectTopas_v_1._2.Models.SepticService>
+
+@{
+    ViewBag.Title = "Обслуживание";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Страница изменений данных в таблице "Обслуживание"</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Models)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td> 
+            @Html.DisplayFor(modelItem => item.Cost) руб.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Models)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

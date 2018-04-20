@@ -1,0 +1,87 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticSpecification
+
+@{
+    ViewBag.Title = "Изменение записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Изменение записи</h2>
+
+@using (Html.BeginForm("Edit", "S3pticSp3c", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Подробная информация</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SepticTankId, "Модель", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SepticTankId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SepticTankId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control" } })
+                    <span class="input-group-addon">кг.</span>
+                    @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VolleyRes, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VolleyRes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VolleyRes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PipeDepth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PipeDepth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PipeDepth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PathPicMain, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                <img src="~/Pics/Models/MainPic/@Html.DisplayFor(model => model.PathPicMain)" class="img-responsive" />
+            </div>
+            <div class="col-md-7">
+                <input type="file" name="upload1" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PathMontagePic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                <img src="~/Pics/Models/Scheme/@Html.DisplayFor(model => model.PathMontagePic)" class="img-responsive" />
+            </div>
+            <div class="col-md-7">
+                <input type="file" name="upload2" />
+            </div>
+            
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>

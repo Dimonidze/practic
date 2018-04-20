@@ -1,0 +1,73 @@
+﻿@model ProjectTopas_v_1._2.Models.SepticSpecification
+
+@{
+    ViewBag.Title = "Удаление записи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Удаление записи</h2>
+
+<h3>Вы действительно хотите удалить эту запись?</h3>
+<div>
+    <h4>Детальная информация</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SepticTank.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SepticTank.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VolleyRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VolleyRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PipeDepth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PipeDepth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathPicMain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathPicMain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PathMontagePic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PathMontagePic)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>
