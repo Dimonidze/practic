@@ -1,0 +1,2 @@
+[2018-04-25 13:46:58] (ERROR in xPDOConnection::connect @ L:\wamp64\www\practic\core\xpdo\xpdo.class.php : 3114) SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+[2018-04-25 13:46:58] (ERROR in xPDOConnection::connect @ L:\wamp64\www\practic\core\xpdo\xpdo.class.php : 3114) SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)

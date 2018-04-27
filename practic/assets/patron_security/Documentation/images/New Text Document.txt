@@ -1,0 +1,11 @@
+<!-- Favicon -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+
+	<!-- Links of css files -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="fonts/flaticon.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/color.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/loader.css" rel="stylesheet">
